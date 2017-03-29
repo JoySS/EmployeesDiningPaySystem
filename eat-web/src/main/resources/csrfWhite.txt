@@ -1,0 +1,3 @@
+localhost
+index.html
+10.10.19.23

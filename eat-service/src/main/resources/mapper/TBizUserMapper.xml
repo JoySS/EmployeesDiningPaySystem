@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sz7road.eat.service.mapper.TBizUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="iBaseResultMap" type="com.sz7road.eat.api.entity.biz.TBizUser">
+        <result column="id" property="id"/>
+        <result column="account" property="account"/>
+        <result column="password" property="password"/>
+        <result column="invitation_code" property="invitationCode"/>
+        <result column="be_invitation_code" property="beInvitationCode"/>
+        <result column="channel" property="channel"/>
+    </resultMap>
+
+    <select id="selectByAccountPassword" parameterType="com.sz7road.eat.api.entity.biz.TBizUser" resultMap="iBaseResultMap">
+		SELECT * FROM t_biz_user
+		WHERE account = #{account, jdbcType=VARCHAR}
+		AND password = #{password, jdbcType=VARCHAR}
+		AND `enable` = 1;
+	</select>
+
+</mapper>
